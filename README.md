@@ -1,7 +1,6 @@
 # 📄 AI-Powered Resume Ranking Tool (Flask Edition)
 
-A robust, intelligent web application designed to streamline the recruitment process. This tool uses Natural Language Processing (NLP) to rank candidate resumes against a job description and extract specific mandatory skills.
-
+A web application that ranks candidate resumes against a job description using NLP techniques.
 ## 🚀 Key Features
 - **Intelligent Ranking**: Uses TF-IDF Vectorization and Cosine Similarity to calculate a percentage match between job requirements and resumes.
 - **Skill Extraction**: Automatically detects and highlights mandatory keywords/skills (e.g., "Python", "SQL", "React") within the resumes.
