@@ -7,13 +7,8 @@ import spacy
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-# Load spaCy English model with auto-download if not present
-try:
-    nlp = spacy.load("en_core_web_sm")
-except OSError:
-    import spacy.cli
-    spacy.cli.download("en_core_web_sm", "--user")
-    nlp = spacy.load("en_core_web_sm")
+# Load spaCy English model
+nlp = spacy.load("en_core_web_sm")
 
 st.set_page_config(page_title="AI-Powered Resume Screening Tool", layout="wide")
 st.title("AI-Powered Resume Screening Tool")
