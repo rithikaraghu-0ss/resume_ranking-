@@ -1,6 +1,8 @@
-streamlit
+flask
+gunicorn
 pandas
 numpy
 pdfplumber
 python-docx
 scikit-learn
+werkzeug
