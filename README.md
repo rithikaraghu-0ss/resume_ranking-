@@ -1,21 +1,22 @@
-# 📄 AI-Powered Resume Ranking Tool
+# 📄 AI-Powered Resume Ranking Tool (Flask Edition)
 
-An intelligent, web-based tool built with **Streamlit** and **Python** to automate the process of screening resumes. It uses NLP (TF-IDF Vectorization & Cosine Similarity) to rank candidates based on their relevance to a specific job description.
+A robust, intelligent web application designed to streamline the recruitment process. This tool uses Natural Language Processing (NLP) to rank candidate resumes against a job description and extract specific mandatory skills.
 
-## 🚀 Features
-- **Multi-format Support**: Upload resumes in PDF, DOCX, or TXT formats.
-- **Smart Ranking**: Calculates similarity scores between resumes and job descriptions using Scikit-Learn.
-- **Progress Tracking**: Real-time progress bar for bulk processing.
-- **Data Export**: Download the ranked results as a CSV file for further analysis.
-- **Clean UI**: Gradient-colored rankings and easy-to-use interface.
+## 🚀 Key Features
+- **Intelligent Ranking**: Uses TF-IDF Vectorization and Cosine Similarity to calculate a percentage match between job requirements and resumes.
+- **Skill Extraction**: Automatically detects and highlights mandatory keywords/skills (e.g., "Python", "SQL", "React") within the resumes.
+- **Multi-Format Support**: Processes `.pdf`, `.docx`, and `.txt` files seamlessly.
+- **Modern Responsive UI**: A high-end, user-friendly interface with real-time feedback and loading animations.
+- **Bulk Processing**: Upload and analyze multiple resumes simultaneously.
 
 ## 🛠️ Tech Stack
-- **Frontend**: Streamlit
-- **File Parsing**: `pdfplumber`, `python-docx`
-- **NLP**: `scikit-learn` (TF-IDF, Cosine Similarity)
-- **Data Handling**: `pandas`, `numpy`
+- **Backend**: Python, Flask
+- **NLP & ML**: Scikit-Learn (TF-IDF), Regex
+- **File Parsing**: `pdfplumber` (PDF), `python-docx` (Word)
+- **Frontend**: HTML5, Vanilla CSS, JavaScript (Fetch API)
+- **Deployment Ready**: Configured for Render, Vercel, and Heroku.
 
-## 📦 Installation & Setup
+## 📦 Local Installation
 
 1. **Clone the repository**:
    ```bash
@@ -23,22 +24,41 @@ An intelligent, web-based tool built with **Streamlit** and **Python** to automa
    cd resume_ranking-
    ```
 
-2. **Install dependencies**:
+2. **Set up a Virtual Environment** (Optional but recommended):
+   ```bash
+   python -m venv venv
+   source venv/Scripts/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. **Install Dependencies**:
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Run the application**:
+4. **Run the Application**:
    ```bash
-   streamlit run resume_app.py
+   python app.py
    ```
+   Open `http://127.0.0.1:5000` in your web browser.
+
+## 🚀 Deployment Guide (Render)
+
+Render is an excellent platform for hosting this Flask application for free.
+
+1. Create a new **Web Service** on Render.
+2. Connect this GitHub repository.
+3. Configure the following settings:
+   - **Environment**: `Python`
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `gunicorn app:app`
+4. Click **Deploy**.
 
 ## 🗺️ How it Works
-1. **Extraction**: The tool extracts raw text from uploaded files using specialized libraries.
-2. **Preprocessing**: It cleans the text by removing special characters and normalizing whitespace.
-3. **Vectorization**: It converts the text into numerical vectors using TF-IDF (Term Frequency-Inverse Document Frequency) which highlights important keywords.
-4. **Comparison**: It calculates the cosine of the angle between the job description vector and each resume vector to determine a similarity percentage.
-5. **Ranking**: Results are sorted and displayed in a tiered table.
+1. **Extraction**: The server extracts raw text from various file formats.
+2. **Preprocessing**: Text is normalized (lowercased, special characters removed) to ensure accurate matching.
+3. **Keyword Search**: The tool searches for specific user-defined skills using precise word-boundary regex.
+4. **Vectorization**: The job description and all resumes are converted into TF-IDF vectors.
+5. **Similarity Calculation**: Cosine similarity is used to determine the mathematical "closeness" of each resume to the job requirements.
 
 ## 📄 License
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
